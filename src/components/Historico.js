@@ -1,55 +1,45 @@
 import styled from "styled-components";
 import Navbar from "./childcomponents/Navbar";
-import Footer from "./childcomponents/Footer";
+//import Footer from "./childcomponents/Footer";
 
 export default function Historico(){
     return (
-        <>
+        <Body>
             <Navbar/>
-            <Corpo>
-                <Titulo>Histórico</Titulo>
-                <Texto>Em breve você poderá ver o histórico dos seus hábitos aqui!</Texto>
-            </Corpo>
-            <Footer/>
-        </>
+            
+            <Title>Histórico</Title>
+            <Text>Em breve você poderá ver o histórico dos seus hábitos aqui!</Text>
+            {/*< Footer/> */}
+        </Body>
     );
 }
 
-const Corpo = styled.div`
-    margin-top: 70px;
-    margin-left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+const Body=styled.div`
     background-color: #E5E5E5;
-    padding: 20px;
+    height: 100vh;
+    margin-top: 70px;
+    width: 100vw;
+    margin-left: -8px;
+    padding-top: 30px;
 `
 
-const Titulo = styled.div`
-    color:#126BA5;
-    width: 100px;
-    height: 29px;
-    left: 17px;
-    top: 98px;
+const Title=styled.div`
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 400;
     font-size: 22.976px;
     line-height: 29px;
-    margin-bottom: 20px;
+    color: #126BA5;
+    margin-left: 20px;
 `
-const Texto= styled.div`
-    width: 338px;
-    height: 74px;
-    left: 15px;
-    top: 144px;
+
+const Text=styled.div`
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 400;
     font-size: 17.976px;
     line-height: 22px;
     color: #666666;
+    margin-left: 20px;
+    margin-top: 18px;
 `
