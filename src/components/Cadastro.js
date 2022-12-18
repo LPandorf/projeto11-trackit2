@@ -33,9 +33,9 @@ export default function Cadastro(){
     }
 
     return(
-        <Wrapper>
+        <Wrapper onSubmit={OnSubmit}>
             <Logo/>
-            <Cadastrar onSubmit={OnSubmit}>
+            <Cadastrar>
                 <Input 
                     disabled={desabilitado}
                     type="email"

@@ -4,7 +4,6 @@ import { Link,Navigate} from "react-router-dom";
 import { useState } from "react";
 import Logo from "./childcomponents/Logo";
 import RenderButton from "./childcomponents/grandchildcomponents/RenderButton";
-//import {InfoLogin} from "../Contexts";
 
 export default function Login(){
     const [infoCadastro,setInfoCadastro] =useState({
@@ -14,13 +13,10 @@ export default function Login(){
     const {email, password} = infoCadastro;
     const [desabilitado,setDesabilitado]=useState(false);
     const [next,setNext] = useState(false);
-    //const navigate=useNavigate();
-    //const {infoLogin, setInfoLogin}=useContext(InfoLogin);
 
     function OnSubmit(e){
-        alert("entrou");
-        setDesabilitado(true);
         e.preventDefault();
+        setDesabilitado(true);
         const body = {email, password};
         const promisse=axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login",body);
         promisse.then((answer)=>{
@@ -41,9 +37,9 @@ export default function Login(){
         return <Navigate to={"/hoje"}/>
     }else{
         return (
-            <Wrapper>
+            <Wrapper onSubmit={OnSubmit}>
                 <Logo/>
-                <Logar onSubmit={OnSubmit}>
+                <Logar >
                     <Input 
                         disabled={desabilitado}
                         type="email"
