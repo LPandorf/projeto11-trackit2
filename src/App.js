@@ -6,14 +6,16 @@ import Hoje from "./components/Hoje";
 import Historico from "./components/Historico";
 import { useState } from "react";
 
-import { InfoLogin } from "./Contexts";
+import { AddHabit, InfoLogin } from "./Contexts";
 
 
 export default function App() {
   const [infoLogin,setInfoLogin]=useState(localStorage.getItem('user')?JSON.parse(localStorage.getItem('user')) : null);
-  
+  const [addHabit,setAddHabit]=useState(false);
+
   return (
     <InfoLogin.Provider value={{infoLogin,setInfoLogin}}>
+    <AddHabit.Provider value={{addHabit,setAddHabit}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -23,6 +25,7 @@ export default function App() {
           <Route path="/historico" element={<Historico />} />
         </Routes>
       </BrowserRouter>
+    </AddHabit.Provider>
     </InfoLogin.Provider>
   );
 }
