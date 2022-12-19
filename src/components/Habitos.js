@@ -1,12 +1,14 @@
 import Navbar from "./childcomponents/Navbar";
 import styled from "styled-components";
 import NewNote from "./childcomponents/NewNote";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AddHabit } from "../Contexts";
 
 export default function Habitos(){
-    const [addHabit, setAddHabit]= useContext(AddHabit);
+    //const [addHabit, setAddHabit]= useContext(AddHabit);
+    //const [addHabit, setAddHabit]= useState(false);
 
+/* 
     function NewHabit(){
         if(addHabit===true){
             return(
@@ -18,16 +20,16 @@ export default function Habitos(){
                 </>
             );
         }
-    }
+    } */
     return (
         <Wrapper>
             <Navbar/>
             <Side>
                 <Title>Meus hábitos</Title>
-                <Plus onClick={()=>setAddHabit(true)}>+</Plus>
+                <Plus /* onClick={()=>setAddHabit(true)} */>+</Plus>
             </Side>
-
-            <NewHabit/>
+            <NewNote/>
+            {/* <NewHabit/> */}
             <Text>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</Text>
         </Wrapper>
     );
@@ -83,11 +85,4 @@ const Side=styled.div`
     align-items: baseline;
     margin-right: 20px;
     margin-left: 20px;
-`;
-
-const New=styled.div`
-    width: 340px;
-    height: 180px;
-    background: #FFFFFF;
-    border-radius: 5px;
 `;

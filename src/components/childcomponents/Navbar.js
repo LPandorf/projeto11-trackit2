@@ -1,17 +1,17 @@
 import styled from "styled-components";
-//import { useContext } from "react";
-//import { InfoLogin } from "../Contexts";
-import image from "../../assets/annabeth.png";
+import { useContext } from "react";
+import { InfoLogin } from "../../Contexts";
+//import image from "../../assets/annabeth.png";
 
 export default function Navbar() {
-    //const {infoLogin}=useContext(InfoLogin);
-    //const{image}=infoLogin;<Foto src={image}></Foto>
+    const {infoLogin}=useContext(InfoLogin);
+    const {image}=infoLogin;
     return (
         <Wrapper>
             <Name>TrackIt</Name>
             <Foto src={image} alt={"profile.picture"} />
         </Wrapper>
-    )
+    );
 }
 
 const Wrapper = styled.div`
