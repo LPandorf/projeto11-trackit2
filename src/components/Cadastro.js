@@ -43,6 +43,7 @@ export default function Cadastro(){
                     placeholder="email"
                     required
                     onChange={(e)=>setInfoCadastro({...infoCadastro,email:e.target.value})}
+                    data-test="email-input"
                 />
                 <Input 
                     disabled={desabilitado}
@@ -51,6 +52,7 @@ export default function Cadastro(){
                     placeholder="senha"
                     required
                     onChange={(e)=>setInfoCadastro({...infoCadastro,password: e.target.value})}
+                    data-test="password-input"
                 />
                 <Input 
                     disabled={desabilitado}
@@ -59,6 +61,7 @@ export default function Cadastro(){
                     placeholder="nome"
                     required
                     onChange={(e)=>setInfoCadastro({...infoCadastro,name: e.target.value})}
+                    data-test="user-name-input" 
                 />
                 <Input 
                     disabled={desabilitado}
@@ -67,15 +70,17 @@ export default function Cadastro(){
                     placeholder="foto"
                     required
                     onChange={(e)=>setInfoCadastro({...infoCadastro,image: e.target.value})}
+                    data-test="user-image-input"
                 />
                 <button 
                     disabled={desabilitado}
                     type="submit"
+                    data-test="signup-btn"
                 >
                     <RenderButton state={desabilitado} text="Cadastrar"/>
                 </button>
                 <Link to={`/`}>
-                    <Cadastrado>Já tem uma conta? Faça login!</Cadastrado>
+                    <Cadastrado data-test="login-link">Já tem uma conta? Faça login!</Cadastrado>
                 </Link>
             </Cadastrar>
         </Wrapper>
