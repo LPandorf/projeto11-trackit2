@@ -45,7 +45,7 @@ export default function NewNote(){
                 setDesabilitado(false);
             });
         }else{
-            alert("É necessário que todos os cammpos estejam preenchidos");
+            alert("É necessário que todos os campos estejam preenchidos");
         }
     }
 
@@ -72,6 +72,7 @@ export default function NewNote(){
                                             setSelecionado([...selecionado,elem.number])}
                                         }
                                         data-test="habit-day" 
+                                        key={elem.number}
                                     >
                                         {elem.day}
                                     </Dia>
@@ -86,6 +87,7 @@ export default function NewNote(){
                                             setSelecionado(selecionado.filter((day)=> day!== elem.number))}
                                         }
                                         data-test="habit-day" 
+                                        key={elem.number}
                                     >
                                         {elem.day}
                                     </Dia>
