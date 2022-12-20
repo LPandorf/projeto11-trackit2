@@ -47,6 +47,7 @@ export default function Login(){
                         placeholder="email"
                         required
                         onChange={(e)=>setInfoCadastro({...infoCadastro,email:e.target.value})}
+                        data-test="email-input"
                     />
                     <Input 
                         disabled={desabilitado}
@@ -55,15 +56,17 @@ export default function Login(){
                         placeholder="senha"
                         required
                         onChange={(e)=>setInfoCadastro({...infoCadastro,password: e.target.value})}
+                        data-test="password-input"
                     />
                     <button 
                         disabled={desabilitado}
                         type="submit"
+                        data-test="login-btn"
                     >
                         <RenderButton state={desabilitado} text="Entrar"/>
                     </button>
                     <Link to={`/cadastro`}>
-                        <Cadastrar>Não tem uma conta? Cadastre-se!</Cadastrar>
+                        <Cadastrar data-test="signup-link">Não tem uma conta? Cadastre-se!</Cadastrar>
                     </Link>
                 </Logar>
             </Wrapper>
