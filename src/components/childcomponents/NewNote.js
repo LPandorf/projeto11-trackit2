@@ -34,7 +34,6 @@ const Wrapper=styled.div`
     height: 120px;
     background: #FFFFFF;
     border-radius: 5px;
-    margin-left: 20px;
     margin-top: 10px;
     padding: 18px;
     display: flex;
