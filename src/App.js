@@ -6,7 +6,7 @@ import Hoje from "./components/Hoje";
 import Historico from "./components/Historico";
 import { useState } from "react";
 
-import { AddHabit, InfoLogin, Porcentagem, NovaRequisicao, ListaHabitos } from "./Contexts";
+import { AddHabit, InfoLogin, Porcentagem, NovaRequisicao, ListaHabitos, HabitosHoje } from "./Contexts";
 
 
 export default function App() {
@@ -15,6 +15,8 @@ export default function App() {
   const [porcentagem,setPorcentagem]=useState(0);
   const [novaRequisicao,setNovaRequisicao]=useState(false);
   const [listaHabitos,setListaHabitos]=useState([]);
+  const [habitosHoje,setHabitosHoje]=useState([]);
+  console.log(porcentagem);
 
   return (
     <InfoLogin.Provider value={{infoLogin,setInfoLogin}}>
@@ -22,6 +24,7 @@ export default function App() {
     <Porcentagem.Provider value={{porcentagem, setPorcentagem}}>
     <NovaRequisicao.Provider value={{novaRequisicao, setNovaRequisicao}}>
     <ListaHabitos.Provider value={{listaHabitos, setListaHabitos}}>
+    <HabitosHoje.Provider value={{habitosHoje, setHabitosHoje}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -31,6 +34,7 @@ export default function App() {
           <Route path="/historico" element={<Historico />} />
         </Routes>
       </BrowserRouter>
+    </HabitosHoje.Provider>
     </ListaHabitos.Provider>
     </NovaRequisicao.Provider>
     </Porcentagem.Provider>

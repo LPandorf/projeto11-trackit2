@@ -9,6 +9,7 @@ import AnimatedProgressProvider from "./grandchildcomponents/AnimatedProgressPro
  
 export default function Footer(){
     const {porcentagem}=useContext(Porcentagem);
+    console.log(porcentagem);
     
     return(
         <Wrapper data-test="menu" >

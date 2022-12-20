@@ -1,23 +1,97 @@
 import styled from "styled-components";
-
+import axios from "axios";
+import { useContext, useState } from "react";
+import { InfoLogin, HabitosHoje, NovaRequisicao, Porcentagem } from "../../Contexts";
 
 export default function TodayNote(){
+    const {infoLogin}=useContext(InfoLogin);
+    const {habitosHoje,setHabitosHoje}=useContext(HabitosHoje);
+    const {novaRequisição,setNovaRequisicao}=useContext(NovaRequisicao);
+    const {porcentagem,setPorcentagem}=useContext(Porcentagem);
 
+    const [desabilitado,setDesabilitado]=useState(false);
+
+    const {token}=infoLogin;
+
+    function Completo(e,id){
+        e.preventDefault();
+        setDesabilitado(true);
+        const promisse=axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/check`,
+            null, 
+            {headers: {
+                'Authorization': `Bearer ${token}`
+            }}
+        )
+        promisse.then(()=>{
+            setNovaRequisicao(!novaRequisição);
+            setDesabilitado(false);
+            setHabitosHoje(habitosHoje);
+            setPorcentagem(porcentagem);
+        })
+        promisse.catch((warning)=>{
+            alert("Erro! Tente novamente.");
+            setDesabilitado(false);
+        })
+    }
+    function Incompleto(e,id){
+        e.preventDefault();
+        setDesabilitado(true);
+        const promisse=axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/uncheck`,
+            null, 
+            {headers: {
+                'Authorization': `Bearer ${token}`
+            }}
+        );
+        promisse.then(()=>{
+            setNovaRequisicao(!novaRequisição);
+            setDesabilitado(false);
+            setHabitosHoje(habitosHoje);
+            setPorcentagem(porcentagem);
+        });
+        promisse.catch((warning)=>{
+            alert("Erro! Tente novamente.");
+            setDesabilitado(false);
+        });    
+    }
     return(
-        <Wrapper>
-            <Left>
-                <Title>Ler sla oq</Title>
-                <Text>
-                    Sequência atual: 3 dias<br/>
-                    Seu recorde: 5 dias
-                </Text>
-            </Left>
-            <Right>
-                <ion-icon name="checkmark"></ion-icon>
-            </Right>
-        </Wrapper>
+        <Lista>
+            {habitosHoje.map(elem=>{
+                return (
+                    <Wrapper key={elem.name}>
+                        <Left>
+                            <Title>
+                                {elem.name}
+                            </Title>
+                            <Text 
+                                fontColorSequencia={elem.done?"#8FC549":"#666666"}
+                            >
+                                Sequência atual:{elem.currentSequence} {elem.currentSequence>1? "dias":"dia"}
+                            </Text>
+                            <Text 
+                                fontColorRecorde={elem.currentSequence===elem.highestSequence? "#8FC549":"#666666"}
+                            >
+                                Seu recorde:{elem.highestSequence} {elem.highestSequence>1? "dias":"dia"}
+                            </Text>
+                        </Left>
+                        <Right
+                            disabled={desabilitado}
+                            background={elem.done? "#8FC549" : "#E7E7E7"}
+                            onClick={(e)=>{elem.done? Incompleto(e, elem.id):Completo(e,elem.id)}}
+                        >
+                            <ion-icon name="checkmark-outline"></ion-icon>
+                        </Right>
+                    </Wrapper>
+                );
+            })}
+        </Lista>
+        
     );
 }
+
+const Lista=styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 const Wrapper = styled.div`
     width: 340px;
@@ -27,6 +101,7 @@ const Wrapper = styled.div`
     padding: 15px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 `;
 
 const Title = styled.div`
@@ -56,7 +131,7 @@ const Left= styled.div`
 const Right = styled.div`
     width: 69px;
     height: 69px;
-    background: #EBEBEB;
+    background: ${(props)=>props.background};
     border: 1px solid #E7E7E7;
     border-radius: 5px;
     display: flex;
