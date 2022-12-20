@@ -1,21 +1,21 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-//import {CircularProgressbar, buildStyles} from "react-circular-progressbar";
-//import 'react-circular-progressbar/dist/styles.css';
-/* import { useContext } from "react";
+import {CircularProgressbar, buildStyles} from "react-circular-progressbar";
+import 'react-circular-progressbar/dist/styles.css';
+import { useContext } from "react";
 import { easeQuadInOut } from "d3-ease";
-import { Porcentagem } from "../Contexts";
-import AnimatedProgressProvider from "./AnimatedProgressProvider";
- */
+import { Porcentagem } from "../../Contexts";
+import AnimatedProgressProvider from "./grandchildcomponents/AnimatedProgressProvider";
+ 
 export default function Footer(){
-    //const {porcentagem}=useContext(Porcentagem);
+    const {porcentagem}=useContext(Porcentagem);
     
     return(
         <Wrapper>
-            <Link to={`/habitos`}>
+            <Link to={`/habitos`} style={{ textDecoration: 'none' }}>
                 <Titulo data-test="habit-link">Hábitos</Titulo>
             </Link>
-            {/* <BarraCircular>
+            <BarraCircular data-test="today-link">
                 <Link to={`/hoje`}>
                     <AnimatedProgressProvider
                         valueStart={0}
@@ -44,8 +44,8 @@ export default function Footer(){
                         }}
                     </AnimatedProgressProvider>
                 </Link>
-            </BarraCircular> */}
-            <Link to={`/historico`}>
+            </BarraCircular>
+            <Link to={`/historico`} style={{ textDecoration: 'none' }}>
                 <Titulo data-test="history-link" >Histórico</Titulo>
             </Link>
         </Wrapper>
@@ -57,9 +57,9 @@ const Wrapper = styled.div`
     position: fixed;
     justify-content: space-between;
     align-items: center;
-    width: 100px;
+    width: 100%;
     height: 70px;
-    left: 0px;
+    left: 0;
     bottom: 0px;
     background-color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -69,8 +69,6 @@ const Wrapper = styled.div`
     font-size: 38.982px;
     line-height: 49px;
     color: #FFFFFF;
-    padding-left: 18px;
-    padding-right: 18px;
 `;
 
 const Titulo = styled.div`
@@ -81,9 +79,18 @@ const Titulo = styled.div`
     line-height: 22px;
     text-align: center;
     color: #52B6FF;
+    margin-left: 18px;
+    margin-right: 18px;
 `;
-/* const BarraCircular= styled.div`
+
+const BarraCircular= styled.div`
     width: 100px;
     height: 100px;
     margin-bottom:60px;
-` */
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17.976px;
+    line-height: 22px;
+    text-align: center;
+`;

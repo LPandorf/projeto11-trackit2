@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { InfoLogin } from "../../Contexts";
-//import image from "../../assets/annabeth.png";
+//import mage from "../../assets/annabeth.png";
 
 export default function Navbar() {
-    const {infoLogin}=useContext(InfoLogin);
-    const {image}=infoLogin;
+    const infoLogin=useContext(InfoLogin);
+    const {image}=infoLogin; 
+    console.log(image);
     return (
         <Wrapper>
             <Name>TrackIt</Name>
             <Foto src={image} alt={"profile.picture"} />
+            {/* <Foto src={mage} alt={"profile.picture"} /> */}
         </Wrapper>
     );
 }
