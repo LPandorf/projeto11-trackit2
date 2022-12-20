@@ -27,7 +27,7 @@ export default function Footer(){
                         {value=>{
                             return(
                                 <CircularProgressbar
-                                    value={value} 
+                                    value={porcentagem} 
                                     maxValue={100} 
                                     text="Hoje"
                                     background

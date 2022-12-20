@@ -5,6 +5,9 @@ import Navbar from "./childcomponents/Navbar";
 import TodayNote from "./childcomponents/TodayNote";
 import { useContext, useEffect } from "react";
 import axios from "axios";
+import "dayjs/locale/pt-br";
+import dayjs from "dayjs";
+import { locale } from "dayjs";
 
 export default function Hoje(){
     let i=0;
@@ -34,28 +37,18 @@ export default function Hoje(){
     function Concluido(){
         if(Porcentagem!==0){
             return (
-                <>{porcentagem}% dos hábitos concluídos</>
+                <Text data-test="today-counter">{porcentagem}% dos hábitos concluídos</Text>
             );
         }else{
             return(
-                <>Nenhum hábito concluído ainda</>
+                <Text data-test="today-counter">Nenhum hábito concluído ainda</Text>
             );
         }
     }
-
-    const dayjs=require('dayjs');
-    console.log(dayjs);
-    let hoje= new Date((dayjs().format('dddd, MM/DD')));
-    const opcao={
-        month:'numeric',
-        weekday:'long',
-        day:'numeric',
-    }
-    let diaTraducao=(hoje.toLocaleDateString('pt-br',opcao));
-    let remover=diaTraducao.replace('-feira','');
-    let renderizarDia= remover[0].toUpperCase(); 
-    //+remover.substr(1)  let renderizarDia=26
-
+    
+    let hoje= dayjs().locale("pt-br").format('dddd, MM/DD');
+    let remover=hoje.replace('-feira','');
+    let renderizarDia= remover[0].toUpperCase()+remover.substring(1);  
     
     for(let x=0;x<habitosHoje.length;x++){
         if(habitosHoje[x].done===true){
@@ -72,10 +65,8 @@ export default function Hoje(){
     return (
         <Wrapper>
             <Navbar data-test="header"/>
-            <Title>{renderizarDia}</Title>
-            <Text>
-                <Concluido/>
-            </Text>
+            <Title data-test="today" >{renderizarDia}</Title>
+            <Concluido/>
             <Today>
                 <TodayNote/>
             </Today>

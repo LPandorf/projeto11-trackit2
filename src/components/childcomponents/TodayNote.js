@@ -57,23 +57,26 @@ export default function TodayNote(){
         <Lista>
             {habitosHoje.map(elem=>{
                 return (
-                    <Wrapper key={elem.name}>
+                    <Wrapper key={elem.name} data-test="today-habit-container">
                         <Left>
-                            <Title>
+                            <Title data-test="today-habit-name">
                                 {elem.name}
                             </Title>
                             <Text 
+                                data-test="today-habit-sequence"
                                 fontColorSequencia={elem.done?"#8FC549":"#666666"}
                             >
                                 Sequência atual:{elem.currentSequence} {elem.currentSequence>1? "dias":"dia"}
                             </Text>
                             <Text 
+                                data-test="today-habit-record"
                                 fontColorRecorde={elem.currentSequence===elem.highestSequence? "#8FC549":"#666666"}
                             >
                                 Seu recorde:{elem.highestSequence} {elem.highestSequence>1? "dias":"dia"}
                             </Text>
                         </Left>
                         <Right
+                            data-test="today-habit-check-btn"
                             disabled={desabilitado}
                             background={elem.done? "#8FC549" : "#E7E7E7"}
                             onClick={(e)=>{elem.done? Incompleto(e, elem.id):Completo(e,elem.id)}}
