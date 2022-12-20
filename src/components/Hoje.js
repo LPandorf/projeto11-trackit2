@@ -69,7 +69,7 @@ export default function Hoje(){
 
     return (
         <Wrapper>
-            <Navbar data-test="header"/>
+            <Navbar/>
             <Title data-test="today" >{renderizarDia}</Title>
             <Concluido/>
             <Today>
