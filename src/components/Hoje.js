@@ -75,7 +75,7 @@ export default function Hoje(){
             <Today>
                 <TodayNote/>
             </Today>
-            <Footer data-test="menu" />
+            <Footer />
         </Wrapper>
     );
 }

@@ -5,10 +5,10 @@ import Footer from "./childcomponents/Footer";
 export default function Historico(){
     return (
         <Body>
-            <Navbar data-test="header"/>
+            <Navbar />
             <Title>Histórico</Title>
             <Text>Em breve você poderá ver o histórico dos seus hábitos aqui!</Text>
-            <Footer data-test="menu" />
+            <Footer />
         </Body>
     );
 }

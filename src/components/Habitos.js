@@ -53,7 +53,7 @@ export default function Habitos(){
     }
     return (
         <Wrapper>
-            <Navbar data-test="header"/>
+            <Navbar />
             <Side>
                 <Title>Meus hábitos</Title>
                 <Plus  onClick={()=>setAddHabit(true)} data-test="habit-create-btn">+</Plus>
@@ -62,7 +62,7 @@ export default function Habitos(){
             <Novos>
                 <Mostrar/>
             </Novos>
-            <Footer data-test="menu" />
+            <Footer />
         </Wrapper>
     );
 }
