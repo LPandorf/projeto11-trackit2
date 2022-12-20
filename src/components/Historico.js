@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import Navbar from "./childcomponents/Navbar";
-//import Footer from "./childcomponents/Footer";
+import Footer from "./childcomponents/Footer";
 
 export default function Historico(){
     return (
         <Body>
-            <Navbar/>
+            <Navbar data-test="header"/>
             
             <Title>Histórico</Title>
             <Text>Em breve você poderá ver o histórico dos seus hábitos aqui!</Text>
-            {/*< Footer/> */}
+            <Footer data-test="menu" />
         </Body>
     );
 }

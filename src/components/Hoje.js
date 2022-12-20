@@ -1,18 +1,20 @@
 import styled from "styled-components";
+import Footer from "./childcomponents/Footer";
 import Navbar from "./childcomponents/Navbar";
 import TodayNote from "./childcomponents/TodayNote";
 
 export default function Hoje(){
     return (
         <Wrapper>
-            <Navbar/>
+            <Navbar data-test="header"/>
             <Title>Dia, 26/02</Title>
             <Text>Nenhum hábito concluído ainda</Text>
             <Today>
                 <TodayNote/>
             </Today>
+            <Footer data-test="menu" />
         </Wrapper>
-    )
+    );
 }
 
 const Wrapper=styled.div`
@@ -29,7 +31,7 @@ const Today=styled.div`
     margin-top: 30px;
     align-items: center;
     justify-content: center;
-`
+`;
 
 const Title=styled.div`
     font-family: 'Lexend Deca';
@@ -39,7 +41,7 @@ const Title=styled.div`
     line-height: 29px;
     color: #126BA5;
     margin-left: 20px;
-`
+`;
 
 const Text=styled.div`
     font-family: 'Lexend Deca';
@@ -49,4 +51,4 @@ const Text=styled.div`
     line-height: 22px;
     color: #BABABA;
     margin-left: 20px;
-`
+`;

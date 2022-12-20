@@ -13,7 +13,7 @@ export default function Footer(){
     return(
         <Wrapper>
             <Link to={`/habitos`}>
-                <Titulo>Hábitos</Titulo>
+                <Titulo data-test="habit-link">Hábitos</Titulo>
             </Link>
             {/* <BarraCircular>
                 <Link to={`/hoje`}>
@@ -46,7 +46,7 @@ export default function Footer(){
                 </Link>
             </BarraCircular> */}
             <Link to={`/historico`}>
-                <Titulo>Histórico</Titulo>
+                <Titulo data-test="history-link" >Histórico</Titulo>
             </Link>
         </Wrapper>
     );
@@ -71,7 +71,7 @@ const Wrapper = styled.div`
     color: #FFFFFF;
     padding-left: 18px;
     padding-right: 18px;
-`
+`;
 
 const Titulo = styled.div`
     font-family: 'Lexend Deca';
@@ -81,7 +81,7 @@ const Titulo = styled.div`
     line-height: 22px;
     text-align: center;
     color: #52B6FF;
-`
+`;
 /* const BarraCircular= styled.div`
     width: 100px;
     height: 100px;

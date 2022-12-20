@@ -3,10 +3,10 @@ import styled from "styled-components";
 import NewNote from "./childcomponents/NewNote";
 import { useContext, useState } from "react";
 import { AddHabit } from "../Contexts";
+import Footer from "./childcomponents/Footer";
 
 export default function Habitos(){
     const Habit=useContext(AddHabit);
-    console.log(Habit);
     const {addHabit, setAddHabit}= Habit;
     //const [addHabit, setAddHabit]= useState(false);
 
@@ -25,14 +25,15 @@ export default function Habitos(){
     } 
     return (
         <Wrapper>
-            <Navbar/>
+            <Navbar data-test="header"/>
             <Side>
                 <Title>Meus hábitos</Title>
-                <Plus  onClick={()=>setAddHabit(true)} >+</Plus>
+                <Plus  onClick={()=>setAddHabit(true)} data-test="habit-create-btn">+</Plus>
             </Side>
             
             <NewHabit/>
             <Text>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</Text>
+            <Footer data-test="menu" />
         </Wrapper>
     );
 }

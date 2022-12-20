@@ -14,7 +14,7 @@ export default function NewNote(){
     ];
 
     return (
-        <Wrapper>
+        <Wrapper data-test="habit-create-container">
             <Habit
                 /* disabled={desabilitado} */
                 type="text"
