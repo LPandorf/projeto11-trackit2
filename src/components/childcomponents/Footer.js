@@ -11,7 +11,7 @@ export default function Footer(){
     const {porcentagem}=useContext(Porcentagem);
     
     return(
-        <Wrapper>
+        <Wrapper data-test="menu" >
             <Link to={`/habitos`} style={{ textDecoration: 'none' }}>
                 <Titulo data-test="habit-link">Hábitos</Titulo>
             </Link>
