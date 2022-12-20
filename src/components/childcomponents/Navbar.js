@@ -4,9 +4,9 @@ import { InfoLogin } from "../../Contexts";
 //import mage from "../../assets/annabeth.png";
 
 export default function Navbar() {
-    const infoLogin=useContext(InfoLogin);
-    const {image}=infoLogin; 
-    console.log(image);
+    const {infoLogin}=useContext(InfoLogin);
+    const {image}=infoLogin;
+    
     return (
         <Wrapper data-test="header">
             <Name>TrackIt</Name>

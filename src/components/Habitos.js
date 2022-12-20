@@ -48,7 +48,7 @@ export default function Habitos(){
         }else{
             return(
                 <Text>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</Text>
-            )
+            );
         }
     }
     return (
@@ -58,12 +58,10 @@ export default function Habitos(){
                 <Title>Meus hábitos</Title>
                 <Plus  onClick={()=>setAddHabit(true)} data-test="habit-create-btn">+</Plus>
             </Side>
-            
             <NewHabit/>
             <Novos>
                 <Mostrar/>
             </Novos>
-            
             <Footer data-test="menu" />
         </Wrapper>
     );

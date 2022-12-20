@@ -8,7 +8,6 @@ import { useState } from "react";
 
 import { AddHabit, InfoLogin, Porcentagem, NovaRequisicao, ListaHabitos, HabitosHoje } from "./Contexts";
 
-
 export default function App() {
   const [infoLogin,setInfoLogin]=useState(localStorage.getItem('user')?JSON.parse(localStorage.getItem('user')) : null);
   const [addHabit,setAddHabit]=useState(false);
@@ -16,7 +15,6 @@ export default function App() {
   const [novaRequisicao,setNovaRequisicao]=useState(false);
   const [listaHabitos,setListaHabitos]=useState([]);
   const [habitosHoje,setHabitosHoje]=useState([]);
-  console.log(porcentagem);
 
   return (
     <InfoLogin.Provider value={{infoLogin,setInfoLogin}}>

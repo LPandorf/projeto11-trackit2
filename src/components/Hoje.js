@@ -7,7 +7,6 @@ import { useContext, useEffect } from "react";
 import axios from "axios";
 import "dayjs/locale/pt-br";
 import dayjs from "dayjs";
-import { locale } from "dayjs";
 
 export default function Hoje(){
     let i=0;

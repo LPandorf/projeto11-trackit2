@@ -14,7 +14,6 @@ export default function Note(){
         {day:"S", number:6}
     ];
 
-    
     const {infoLogin}=useContext(InfoLogin);
     const {listaHabitos}=useContext(ListaHabitos);
     const {novaRequisicao, setNovaRequisicao}=useContext(NovaRequisicao);
@@ -72,7 +71,7 @@ export default function Note(){
                             })}
                         </DiasDaSemana>
                     </Habito>
-                )
+                );
             })}
         </Wrapper>
     );

@@ -21,17 +21,17 @@ export default function TodayNote(){
             {headers: {
                 'Authorization': `Bearer ${token}`
             }}
-        )
+        );
         promisse.then(()=>{
             setNovaRequisicao(!novaRequisição);
             setDesabilitado(false);
             setHabitosHoje(habitosHoje);
             setPorcentagem(porcentagem);
-        })
+        });
         promisse.catch((warning)=>{
             alert("Erro! Tente novamente.");
             setDesabilitado(false);
-        })
+        });
     }
     function Incompleto(e,id){
         e.preventDefault();

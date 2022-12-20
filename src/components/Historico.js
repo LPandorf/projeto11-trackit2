@@ -6,7 +6,6 @@ export default function Historico(){
     return (
         <Body>
             <Navbar data-test="header"/>
-            
             <Title>Histórico</Title>
             <Text>Em breve você poderá ver o histórico dos seus hábitos aqui!</Text>
             <Footer data-test="menu" />
@@ -21,7 +20,7 @@ const Body=styled.div`
     width: 100vw;
     margin-left: -8px;
     padding-top: 30px;
-`
+`;
 
 const Title=styled.div`
     font-family: 'Lexend Deca';
@@ -31,7 +30,7 @@ const Title=styled.div`
     line-height: 29px;
     color: #126BA5;
     margin-left: 20px;
-`
+`;
 
 const Text=styled.div`
     font-family: 'Lexend Deca';
@@ -42,4 +41,4 @@ const Text=styled.div`
     color: #666666;
     margin-left: 20px;
     margin-top: 18px;
-`
+`;
