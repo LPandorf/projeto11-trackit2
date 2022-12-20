@@ -8,7 +8,7 @@ export default function Navbar() {
     const {image}=infoLogin;
     
     return (
-        <Wrapper data-test="header">
+        <Wrapper >
             <Name>TrackIt</Name>
             <Foto src={image} alt={"profile.picture"} />
             {/* <Foto src={mage} alt={"profile.picture"} /> */}

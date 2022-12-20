@@ -9,13 +9,10 @@ export default function TodayNote(){
     const {novaRequisição,setNovaRequisicao}=useContext(NovaRequisicao);
     const {porcentagem,setPorcentagem}=useContext(Porcentagem);
 
-    const [desabilitado,setDesabilitado]=useState(false);
-
     const {token}=infoLogin;
 
     function Completo(e,id){
         e.preventDefault();
-        setDesabilitado(true);
         const promisse=axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/check`,
             null, 
             {headers: {
@@ -24,18 +21,16 @@ export default function TodayNote(){
         );
         promisse.then(()=>{
             setNovaRequisicao(!novaRequisição);
-            setDesabilitado(false);
             setHabitosHoje(habitosHoje);
             setPorcentagem(porcentagem);
         });
         promisse.catch((warning)=>{
             alert("Erro! Tente novamente.");
-            setDesabilitado(false);
         });
     }
+
     function Incompleto(e,id){
         e.preventDefault();
-        setDesabilitado(true);
         const promisse=axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/uncheck`,
             null, 
             {headers: {
@@ -44,15 +39,15 @@ export default function TodayNote(){
         );
         promisse.then(()=>{
             setNovaRequisicao(!novaRequisição);
-            setDesabilitado(false);
             setHabitosHoje(habitosHoje);
             setPorcentagem(porcentagem);
         });
-        promisse.catch((warning)=>{
-            alert("Erro! Tente novamente.");
-            setDesabilitado(false);
-        });    
+        promisse.catch((warning)=>{ 
+            alert("Erro! Tente novamente in.");
+        });
+           
     }
+
     return(
         <Lista>
             {habitosHoje.map(elem=>{
@@ -66,20 +61,20 @@ export default function TodayNote(){
                                 data-test="today-habit-sequence"
                                 fontColorSequencia={elem.done?"#8FC549":"#666666"}
                             >
-                                Sequência atual:{elem.currentSequence} {elem.currentSequence>1? "dias":"dia"}
+                                Sequência atual: {elem.currentSequence} {elem.currentSequence>1? "dias":"dia"}
                             </Text>
                             <Text 
                                 data-test="today-habit-record"
                                 fontColorRecorde={elem.currentSequence===elem.highestSequence? "#8FC549":"#666666"}
                             >
-                                Seu recorde:{elem.highestSequence} {elem.highestSequence>1? "dias":"dia"}
+                                Seu recorde: {elem.highestSequence} {elem.highestSequence>1? "dias":"dia"}
                             </Text>
                         </Left>
                         <Right
                             data-test="today-habit-check-btn"
-                            disabled={desabilitado}
-                            background={elem.done? "#8FC549" : "#E7E7E7"}
+                            /* disabled={desabilitado} */
                             onClick={(e)=>{elem.done? Incompleto(e, elem.id):Completo(e,elem.id)}}
+                            background={elem.done? "#8FC549" : "#E7E7E7"}
                         >
                             <ion-icon name="checkmark-outline"></ion-icon>
                         </Right>

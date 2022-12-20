@@ -58,8 +58,14 @@ export default function Hoje(){
         }if(c===habitosHoje.length){
             setPorcentagem(0);
         }
+        arrumaPorcentagem();
+    }
+
+    function arrumaPorcentagem(){
         setPorcentagem(porcento);
     }
+    
+    
 
     return (
         <Wrapper>
